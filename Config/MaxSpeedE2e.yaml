@@ -1,0 +1,34 @@
+
+planner: "Agent"
+
+test_name: "FastMaxSpeed"
+
+racing_mode: "Fast"
+n_scans: 2
+train_mode: "Std"
+test_mode: "Std"
+
+n: 10
+set_n: 1
+
+random_seed: 10000
+
+n_train_steps: 100000
+# n_test_laps: 20
+n_test_laps: 50
+
+map_name: "f1_esp"
+reward: "Cth"
+
+runs:
+  - speed_cap: 4
+  - speed_cap: 5
+  - speed_cap: 6
+  - speed_cap: 7
+  - speed_cap: 8
+
+
+
+
+
+

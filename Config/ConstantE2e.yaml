@@ -1,0 +1,53 @@
+
+planner: "Agent"
+
+test_name: "SlowTests"
+
+racing_mode: "Slow"
+vehicle_speed: 2
+n_scans: 2
+train_mode: "Std"
+test_mode: "Std"
+
+n: 10
+set_n: 1
+
+random_seed: 10000
+max_v: 2
+
+n_train_steps: 30000
+# n_test_laps: 20
+n_test_laps: 50
+
+runs:
+  - map_name: "f1_aut"
+    reward: "Progress"
+  - map_name: "f1_mco"
+    reward: "Progress"
+  - map_name: "f1_esp"
+    reward: "Progress"
+  - map_name: "f1_gbr"
+    reward: "Progress"
+
+  - map_name: "f1_aut"
+    reward: "Cth"
+  - map_name: "f1_mco"
+    reward: "Cth"
+  - map_name: "f1_esp"
+    reward: "Cth"
+  - map_name: "f1_gbr"
+    reward: "Cth"
+
+  - map_name: "f1_aut"
+    reward: "Std"
+  - map_name: "f1_mco"
+    reward: "Std"
+  - map_name: "f1_esp"  
+    reward: "Std"
+  - map_name: "f1_gbr"
+    reward: "Std"
+
+
+
+
+

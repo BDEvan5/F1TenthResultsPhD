@@ -111,7 +111,7 @@ def true_moving_average(data, period):
 
 
 def setup_run_list(run_file):
-    full_path =  "config/" + run_file + '.yaml'
+    full_path =  "Config/" + run_file + '.yaml'
     with open(full_path) as file:
         run_dict = yaml.load(file, Loader=yaml.FullLoader)
 

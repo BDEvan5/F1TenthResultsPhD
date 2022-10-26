@@ -142,8 +142,14 @@ class TrainSimulation(TestSimulation):
 
 def main():
 
-    # sim = TrainSimulation("SuperRuns")
-    sim = TrainSimulation("OnlineRuns")
+    # sim = TrainSimulation("")
+    # sim = TrainSimulation("")
+    # sim = TrainSimulation("")
+    # sim = TrainSimulation("")
+    # sim = TrainSimulation("")
+    # sim = TrainSimulation("ConstantE2e")
+    # sim = TrainSimulation("MaxSpeedE2e")
+    sim = TrainSimulation("VariableRewardsE2e")
     sim.run_training_evaluation()
 
 

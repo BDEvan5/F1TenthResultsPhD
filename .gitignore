@@ -126,3 +126,9 @@ dmypy.json
 Data/Kernels/
 
 Data/Dynamics/
+
+*.pth
+
+Data/Logs/
+
+Data/Vehicles/
