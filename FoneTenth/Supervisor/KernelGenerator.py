@@ -268,7 +268,7 @@ def generate_single_kernel():
 if __name__ == "__main__":
 
     # generate_single_kernel()
-    # generate_fast_kernels()
-    generate_slow_kernels()
+    generate_fast_kernels()
+    # generate_slow_kernels()
 
 
