@@ -1,0 +1,82 @@
+
+planner: "PP"
+# planner: "FGM"
+# planner: "Agent"
+# planner: "Rando"
+
+test_name: "DevelSuper" # name params
+# test_name: "SuperSlowPP" # name params
+# test_name: "E2eAgents"
+# test_name: "ImpactPP" # name params
+# test_name: "RandoTests" # name params
+# test_name: "FilterT" # name params
+# test_name: "NoisyT_rand" # name params
+set_n: 9
+n: 1
+
+# agent training parameters
+train_mode: "Std"
+# train_mode: "Online"
+# n_train_steps: 5000
+# n_train_steps: 3500
+# n_train_steps: 10000
+
+# Testing params
+# test_mode: "Std"
+test_mode: "Super"
+# n_test_laps: 50
+n_test_laps: 1
+
+noise_std: 0
+
+# racing_mode: "Slow"
+racing_mode: "Fast"
+filter: False
+# filter: True
+
+n_scans: 1
+random_seed: 1000
+speed_cap: 8
+
+# map_name: "f1_aut_wide"
+
+runs:
+  - map_name: "f1_aut"
+  - map_name: "f1_esp"
+  - map_name: "f1_aut_wide"
+  - map_name: "f1_mco"
+  # - map_name: "f1_gbr"
+
+
+  # - map_name: "f1_esp"
+  #   racing_mode: "Slow"
+  # - map_name: "f1_aut_wide"
+  #   racing_mode: "Slow"
+  # - map_name: "f1_mco"
+  #   racing_mode: "Slow"
+  # - map_name: "f1_esp"
+  #   racing_mode: "Fast"
+  # - map_name: "f1_aut_wide"
+  #   racing_mode: "Fast"
+  # - map_name: "f1_mco"
+  #   racing_mode: "Fast"
+
+  # - noise_std: 0.2
+  #   set_n: 2
+  # - noise_std: 0.4
+  #   set_n: 4
+  # - noise_std: 0.6
+  #   set_n: 6
+  # - noise_std: 0.8
+  #   set_n: 8
+  # - noise_std: 1.0
+  #   set_n: 10
+  # - noise_std: 1.2
+  #   set_n: 12
+  # - noise_std: 1.4
+  #   set_n: 14
+
+
+# notes: "This is with max speed = 6 for a long train"
+
+

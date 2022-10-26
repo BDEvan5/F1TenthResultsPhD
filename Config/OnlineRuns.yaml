@@ -1,0 +1,91 @@
+
+# planner: "PP"
+# planner: "FGM"
+planner: "Agent"
+
+# test_name: "OnlineDevel" # name params
+# test_name: "FastVelocityMaps"
+# test_name: "FastVelocityMaps2"
+# test_name: "FastSpeeds2"
+# test_name: "FastSpeeds"
+# test_name: "FastRewardSignals2"
+# test_name: "FastRewards2"
+# test_name: "SlowMaps"
+# test_name: "FastCompareESP"
+# test_name: "SlowCompareESP"
+# test_name: "SlowAutStudy"
+# test_name: "SlowRewards"
+# test_name: "OnlineFastT"
+# test_name: "SlowStd" # name params
+# test_name: "FastStd" # name params
+# test_name: "FastOnline" # name params
+test_name: "SlowOnline" # name params
+set_n: 1
+n: 1
+
+# agent training parameters
+# train_mode: "Online"
+# n_train_steps: 5000
+# n_train_steps: 2000
+# n_train_steps: 3000
+# n_train_steps: 6000
+# n_train_steps: 10000
+# n_train_steps: 15000
+
+train_mode: "Std"
+# n_train_steps: 100000
+n_train_steps: 30000
+
+
+# reward: "Progress"
+# reward: "Ppps"
+# reward: "Velocity"
+# reward: "Cth"
+# reward: "None"
+# reward: "Time"
+
+# Testing params
+test_mode: "Std"
+# test_mode: "Super"
+# n_test_laps: 50
+n_test_laps: 20
+# n_test_laps: 2
+
+noise_std: 0
+speed_cap: 5
+vehicle_speed: 2
+
+racing_mode: "Slow"
+# racing_mode: "Fast"
+filter: False
+
+n_scans: 2
+random_seed: 10000
+
+# map_name: "f1_aut_wide"
+map_name: "f1_esp"
+
+runs:
+  # - map_name: "f1_aut_wide"
+  # - map_name: "f1_esp"
+  # - map_name: "f1_aut"
+  # - map_name: "f1_mco"
+  # - map_name: "f1_gbr"
+
+  # - reward: "Ppps"
+  - reward: "Cth"
+  # - reward: "None"
+  # - reward: "Progress"
+  # - reward: "Velocity"
+
+  # - speed_cap: 4
+  #   set_n: 4
+  # - speed_cap: 5
+  #   set_n: 5
+  # - speed_cap: 6
+  #   set_n: 6
+  # - speed_cap: 7
+  #   set_n: 7
+  # - speed_cap: 8
+  #   set_n: 8
+
