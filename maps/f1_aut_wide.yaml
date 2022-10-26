@@ -1,5 +1,5 @@
-# image: f1_aut_wide.png
-image: f1_aut_wide_filled.png
+image: f1_aut_wide.png
+# image: f1_aut_wide_filled.png
 resolution: 0.050000
 origin: [-10, -22.6, 0]
 # origin: [-4, -8.9, 0]
