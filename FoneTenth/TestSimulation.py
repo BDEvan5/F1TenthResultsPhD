@@ -17,7 +17,7 @@ from FoneTenth.Utils.StdRewards import CrossTrackHeadReward
 
 # settings
 SHOW_TRAIN = False
-SHOW_TEST = True
+# SHOW_TEST = True
 SHOW_TEST = False
 VERBOSE = True
 LOGGING = True
@@ -59,7 +59,8 @@ class TestSimulation():
             self.env = F110Env(map=run.map_name)
             self.map_name = run.map_name
 
-            if run.planner == "PP": planner = PurePursuit(self.conf, run, raceline=True)
+            if run.planner == "PP": 
+                planner = PurePursuit(self.conf, run)
             elif run.planner == "FGM": planner = FollowTheGap(self.conf, run)
             elif run.planner == "Rando": 
                 planner = RandomPlanner(run, self.conf)
@@ -219,7 +220,9 @@ class TestSimulation():
 
 def main():
     # sim = TestSimulation("SuperRuns")
-    sim = TestSimulation("OnlineRuns")
+    # sim = TestSimulation("OnlineRuns")
+    sim = TestSimulation("KernelValidation")
+    # sim = TestSimulation("KernelAblation")
     sim.run_testing_evaluation()
 
 

@@ -33,7 +33,7 @@ r_time: 0.05
 
 #save_paths
 vehicle_path: "Data/Vehicles/"
-kernel_path: "Data/Kernels3/"
+kernel_path: "Data/Kernels/"
 dynamics_path: "Data/Dynamics/"
 
 lookahead_time_step: 0.2 # Planning timestep used the supervisor

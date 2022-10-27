@@ -120,4 +120,22 @@ def run_slow_filter(kl, new_kl):
     return new_kl
 
 
+def save_track_imgs():
+    p = "Data/Kernels/"
+    # map_names = ["f1_aut", "f1_gbr", "Levine"]
+    map_names = ["f1_esp", "f1_aut_wide", "f1_mco", "f1_aut"]
+    for map_name in map_names:
+        conf = {}
+        conf['map_name'] = map_name
+        conf["n_dx"] = 40
+        conf = Namespace(**conf)
+        track_img = prepare_track_img(conf) 
+        track, track_img = shrink_img(track_img, 8)
+        track_img = np.array(track_img, dtype=bool)
 
+        np.save(p + f"track_img_{conf.map_name}.npy", track_img)
+
+
+
+if __name__ == "__main__":
+    save_track_imgs()

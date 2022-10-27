@@ -60,11 +60,11 @@ class TrainSimulation(TestSimulation):
             elif run.train_mode == "Online": 
                 agent = AgentTrainer(run, self.conf)
                 self.planner = OnlineTrainer(agent)
+                #! only activate vehicle history if training in online mode.
+                self.vehicle_state_history = VehicleStateHistory(run, "Training/")
 
             self.completed_laps = 0
 
-            train_path = run.path + f"Training/"
-            self.vehicle_state_history = VehicleStateHistory(run, "Training/")
             self.run_training()
 
             #Test
@@ -148,8 +148,8 @@ def main():
     # sim = TrainSimulation("")
     # sim = TrainSimulation("")
     # sim = TrainSimulation("ConstantE2e")
-    # sim = TrainSimulation("MaxSpeedE2e")
-    sim = TrainSimulation("VariableRewardsE2e")
+    sim = TrainSimulation("MaxSpeedE2e")
+    # sim = TrainSimulation("VariableRewardsE2e")
     sim.run_training_evaluation()
 
 

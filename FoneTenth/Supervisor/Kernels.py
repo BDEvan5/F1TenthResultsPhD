@@ -33,7 +33,10 @@ class KernelList:
         self.origin = np.array(yaml_file['origin'])
 
         self.kl = np.load(kernel_name + "_kl.npy")
-        track_img = np.load(conf.kernel_path + "track_img_" + run.map_name + ".npy")
+        try: 
+            track_img = np.load(conf.kernel_path + "track_img_" + run.map_name + ".npy")
+        except FileNotFoundError:
+            print(f"Track images not yet generated: run GenerationUtils.py to generate images for track")
         self.ref_table = - np.ones_like(track_img, dtype=int)
         self.xs, self.ys = np.asarray(track_img == 0).nonzero()
         self.ref_table[self.xs, self.ys] = np.arange(self.kl.shape[0]) # this is a check that the length is correct

@@ -10,7 +10,6 @@ Adjustments have been made
 
 """
 
-from tkinter.filedialog import test
 import numpy as np
 from FoneTenth.Utils.utils import init_file_struct, calculate_speed
 from numba import njit
@@ -291,15 +290,15 @@ def get_actuation(pose_theta, lookahead_point, position, lookahead_distance, whe
 
 
 class PurePursuit:
-    def __init__(self, conf, test_params, init=True, raceline=True):
-        self.name = test_params.run_name
-        path = os.getcwd() + f"/Data/Vehicles/" + test_params.path  + self.name
+    def __init__(self, conf, run, init=True):
+        self.name = run.run_name
+        path = os.getcwd() + f"/Data/Vehicles/" + run.path  + self.name
         if init: init_file_struct(path)
         self.conf = conf
-        self.run = test_params
+        self.run = run
 
-        self.raceline = raceline
-        self.trajectory = Trajectory(test_params.map_name, raceline)
+        self.raceline = run.raceline
+        self.trajectory = Trajectory(run.map_name, run.raceline)
         # self.trajectory.show_pts()
 
         self.lookahead = conf.lookahead 
@@ -308,14 +307,14 @@ class PurePursuit:
         self.max_steer = conf.max_steer
         # self.vehicle_speed = test_params.vehicle_speed
 
-        self.speed_cap = test_params.speed_cap
+        self.speed_cap = run.speed_cap
 
     def plan(self, obs):
         state = obs['state']
         position = state[0:2]
         theta = state[2]
-        lookahead = 1.4
-        # lookahead = 1.6
+        # lookahead = 1.4
+        lookahead = 1.6
         # lookahead = 1 + 0.02* state[3] /  6
         lookahead_point = self.trajectory.get_current_waypoint(position, lookahead)
         # plt.plot(lookahead_point[0], lookahead_point[1], 'ro')

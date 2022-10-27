@@ -7,7 +7,7 @@ from FoneTenth.Supervisor.Dynamics import run_dynamics_update
 from FoneTenth.Planners.PurePursuit import PurePursuit
 from FoneTenth.Utils.HistoryStructs import SafetyHistory
 from FoneTenth.Supervisor.Kernels import *
-
+from copy import copy
 
 class Supervisor:
     def __init__(self, planner, save_history=False):
@@ -27,7 +27,9 @@ class Supervisor:
         if save_history: 
             self.safe_history = SafetyHistory(run)
         
-        self.pp_planner = PurePursuit(planner.conf, planner.run, False, raceline=False)
+        pp_run = copy(planner.run)
+        pp_run.raceline = False
+        self.pp_planner = PurePursuit(planner.conf, pp_run, False)
 
         if run.filter: self.kernel = KernelListFilter(conf, run)
         else: self.kernel = KernelList(conf, run)

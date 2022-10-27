@@ -21,13 +21,13 @@ class RandomPlanner:
         self.path = conf.vehicle_path + run.path + run.run_name 
         init_file_struct(self.path)
 
-    # def plan(self, obs):
-    #     steering = np.random.uniform(-self.d_max, self.d_max)
-    #     speed = np.random.uniform(2, self.max_speed)
-    #     return np.array([steering, speed])
-
     def plan(self, obs):
-        return np.array([0, self.max_speed]) # every action not allowed
+        steering = np.random.uniform(-self.d_max, self.d_max)
+        speed = np.random.uniform(2, self.max_speed)
+        return np.array([steering, speed])
+
+    # def plan(self, obs):
+    #     return np.array([0, self.max_speed]) # every action not allowed
 
     def lap_complete(self):
         pass

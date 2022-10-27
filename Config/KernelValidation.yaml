@@ -1,12 +1,13 @@
 
 # Run with PP and rando
 
-planner: "PP"
-test_name: "KernelValidationPP"
-filter: False
+# planner: "PP"
+# raceline: True
+# test_name: "KernelValidationPP"
+# filter: False
 
-# planner: "Rando"
-# test_name: "KernelValidationRandom"
+planner: "Rando"
+test_name: "KernelValidationRandom"
 filter: False
 
 
@@ -21,8 +22,8 @@ n: 1
 train_mode: "Std"
 
 test_mode: "Super"
-# n_test_laps: 50
-n_test_laps: 1
+n_test_laps: 50
+# n_test_laps: 2
 
 noise_std: 0
 
@@ -32,17 +33,17 @@ random_seed: 1000
 speed_cap: 8
 
 runs:
-  - map_name: "f1_esp"
-    racing_mode: "Slow"
-  - map_name: "f1_aut_wide"
-    racing_mode: "Slow"
-  - map_name: "f1_mco"
-    racing_mode: "Slow"
+  # - map_name: "f1_esp"
+  #   racing_mode: "Slow"
+  # - map_name: "f1_aut_wide"
+  #   racing_mode: "Slow"
+  # - map_name: "f1_mco"
+  #   racing_mode: "Slow"
 
-  - map_name: "f1_esp"
-    racing_mode: "Fast"
-  - map_name: "f1_aut_wide"
-    racing_mode: "Fast"
+  # - map_name: "f1_esp"
+  #   racing_mode: "Fast"
+  # - map_name: "f1_aut_wide"
+  #   racing_mode: "Fast"
   - map_name: "f1_mco"
     racing_mode: "Fast"
 

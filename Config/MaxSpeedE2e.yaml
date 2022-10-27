@@ -8,7 +8,7 @@ n_scans: 2
 train_mode: "Std"
 test_mode: "Std"
 
-n: 10
+n: 5
 set_n: 1
 
 random_seed: 10000
