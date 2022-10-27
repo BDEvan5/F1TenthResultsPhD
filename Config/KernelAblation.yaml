@@ -1,9 +1,9 @@
 
 # Test with PP and Rando on 2x maps all in same folder.
 
-planner: "PP"
+# planner: "PP"
 raceline: False
-# planner: "Rando"
+planner: "Rando"
 
 test_name: "KernelAblation"
 
@@ -18,37 +18,40 @@ n_test_laps: 10
 
 noise_std: 0
 
-racing_mode: "Slow"
-# racing_mode: "Fast"
+# racing_mode: "Slow"
+racing_mode: "Fast"
 filter: False
 
 n_scans: 1
 random_seed: 1000
 speed_cap: 2
 
-map_name: "f1_aut"
+# map_name: "f1_aut"
 # map_name: "f1_esp"
 # map_name: "f1_aut_wide"
-# map_name: "f1_mco"
+map_name: "f1_mco"
 
 runs:
   - noise_std: 0
     set_n: 0
-
+  - noise_std: 0.1
+    set_n: 1
   - noise_std: 0.2
     set_n: 2
+  - noise_std: 0.3
+    set_n: 3
   - noise_std: 0.4
     set_n: 4
   - noise_std: 0.6
     set_n: 6
-  - noise_std: 0.8
-    set_n: 8
-  - noise_std: 1.0
-    set_n: 10
-  - noise_std: 1.2
-    set_n: 12
-  - noise_std: 1.4
-    set_n: 14
+  # - noise_std: 0.8
+  #   set_n: 8
+  # - noise_std: 1.0
+  #   set_n: 10
+  # - noise_std: 1.2
+  #   set_n: 12
+  # - noise_std: 1.4
+  #   set_n: 14
 
 
 

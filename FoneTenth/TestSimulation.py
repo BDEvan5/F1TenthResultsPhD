@@ -226,8 +226,8 @@ def main():
     # sim = TestSimulation("SuperRuns")
     # sim = TestSimulation("OnlineRuns")
     # sim = TestSimulation("KernelValidation")
-    sim = TestSimulation("KernelValidationPP")
-    # sim = TestSimulation("KernelAblation")
+    # sim = TestSimulation("KernelValidationPP")
+    sim = TestSimulation("KernelAblation")
     sim.run_testing_evaluation()
 
 
