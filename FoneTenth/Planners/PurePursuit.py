@@ -313,9 +313,9 @@ class PurePursuit:
         state = obs['state']
         position = state[0:2]
         theta = state[2]
-        # lookahead = 1.4
-        lookahead = 1.6
-        # lookahead = 1 + 0.02* state[3] /  6
+        # lookahead = 1.8
+        # lookahead = 1.6
+        lookahead = 1 + 0.6* state[3] /  8
         lookahead_point = self.trajectory.get_current_waypoint(position, lookahead)
         # plt.plot(lookahead_point[0], lookahead_point[1], 'ro')
         # plt.pause(0.001)
@@ -327,7 +327,6 @@ class PurePursuit:
         steering_angle = np.clip(steering_angle, -self.max_steer, self.max_steer)
         if not self.raceline:
             speed = calculate_speed(steering_angle, 0.8, 8)
-        # speed = min(speed, 4) # cap the speed
         speed = min(speed, self.speed_cap) # cap the speed
         # speed *= 0.7
 

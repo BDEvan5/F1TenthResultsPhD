@@ -126,11 +126,12 @@ def setup_run_list(run_file):
 
             # only have to add what isn't already there
             set_n = run['set_n']
+            speed_cap = run['speed_cap']
             run["n"] = rep
             if run['planner'] == "Agent":
-                run['run_name'] = f"{run['racing_mode']}_{run['train_mode']}_{run['test_mode']}_{run['reward']}_{run['map_name']}_{set_n}_{rep}"
+                run['run_name'] = f"{run['racing_mode']}_{run['train_mode']}_{run['test_mode']}_{run['reward']}_{run['map_name']}_{speed_cap}_{set_n}_{rep}"
             else:
-                run['run_name'] = f"{run['racing_mode']}_{run['planner']}_{run['test_mode']}_{run['map_name']}_{set_n}_{rep}"
+                run['run_name'] = f"{run['racing_mode']}_{run['planner']}_{run['test_mode']}_{run['map_name']}_{speed_cap}_{set_n}_{rep}"
             run['path'] = f"{run['test_name']}/"
 
             run_list.append(Namespace(**run))

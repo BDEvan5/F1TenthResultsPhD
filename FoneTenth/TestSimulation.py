@@ -47,6 +47,9 @@ class TestSimulation():
 
     def run_testing_evaluation(self):
         for run in self.run_data:
+            print(run)
+            print(run.run_name)
+            print("_________________________________________________________")
             seed = run.random_seed + 10*run.n
             np.random.seed(seed) # repetition seed
             torch.use_deterministic_algorithms(True)
@@ -221,7 +224,8 @@ class TestSimulation():
 def main():
     # sim = TestSimulation("SuperRuns")
     # sim = TestSimulation("OnlineRuns")
-    sim = TestSimulation("KernelValidation")
+    # sim = TestSimulation("KernelValidation")
+    sim = TestSimulation("KernelValidationPP")
     # sim = TestSimulation("KernelAblation")
     sim.run_testing_evaluation()
 
