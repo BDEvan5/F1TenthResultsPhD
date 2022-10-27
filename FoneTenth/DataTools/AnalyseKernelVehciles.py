@@ -416,7 +416,8 @@ def explore_folder(path):
 
 
 def analyse_folder():
-    path = "Data/Vehicles/KernelValidationRandom/"
+    # path = "Data/Vehicles/KernelValidationRandom/"
+    path = "Data/Vehicles/KernelValidationPP/"
 
     explore_folder(path)
 

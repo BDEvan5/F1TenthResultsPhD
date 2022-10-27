@@ -63,16 +63,15 @@ def KernelValidationRandom():
         file.write(f"\\bottomrule \n")
 
 
-def impact_pp_results():
-    folder = "Data/Vehicles/ImpactPP/"
+def KernelValidationPP():
+    folder = "Data/Vehicles/KernelValidationPP/"
 
-    # map_names = ["f1_aut_wide", "f1_mco", "f1_esp"]
-    # map_name = "f1_esp"
     map_name = "f1_mco"
-    std_agents = [f"Fast_PP_Std_{map_name}_{i}_0" for i in range(1, 4)]
-    super_agents = [f"Fast_PP_Super_{map_name}_{i}_0" for i in range(1, 4)]
+    speeds = [4, 6, 8]
+    std_agents = [f"Fast_PP_Std_{map_name}_{i}_1_0" for i in speeds]
+    super_agents = [f"Fast_PP_Super_{map_name}_{i}_1_0" for i in speeds]
     
-    print_names = ["8", "6", "4"]
+    print_names = speeds
     metrics_std = ["Lap Time (s)", "Avg. Velocity (m/s)"]
     metrics_super = ["No. Interventions", "Lap Time (s)", "Avg. Velocity (m/s)"]
     std_metric_inds = [8, 9]
@@ -82,7 +81,7 @@ def impact_pp_results():
     data_super = [[] for _ in metrics_super]
 
     for agent in std_agents:
-        with open(folder + f"{agent}/SummaryStatistics.txt", 'r') as file:
+        with open(folder + f"{agent}/TestingSummaryStatistics.txt", 'r') as file:
             lines = file.readlines()
             line = lines[2] # first lap is heading
             line = line.split(',')
@@ -91,7 +90,7 @@ def impact_pp_results():
                 data_std[i].append(metric_data)
     
     for agent in super_agents:
-        with open(folder + f"{agent}/SummaryStatistics.txt", 'r') as file:
+        with open(folder + f"{agent}/TestingSummaryStatistics.txt", 'r') as file:
             lines = file.readlines()
             line = lines[2] # first lap is heading
             line = line.split(',')
@@ -99,10 +98,13 @@ def impact_pp_results():
                 metric_data = float(line[super_metric_inds[i]])
                 data_super[i].append(metric_data)
 
-    with open(folder + f"ImpactPP_{map_name}.txt", 'w') as file:
+    with open(folder + f"KernelValidationPP_{map_name}.txt", 'w') as file:
+        file.write(f"\\toprule \n")
+        file.write(" &  \multicolumn{2}{c}{\\textit{Pure Pursuit}}  & &  \multicolumn{3}{c}{\\textit{Pure Pursuit with SSS}}  \\\\ \n")
+        file.write("\\cmidrule(lr){2-3} \n")
+        file.write("\\cmidrule(lr){5-7} \n")
         file.write("\\textbf{Max Speed} & \\textbf{ " + " } &  \\textbf{ ".join(metrics_std) + "} & {" + "} & \\textbf{ " + " } &  \\textbf{ ".join(metrics_super) + "}   \\\\ \n")
-        file.write(f"\hline \n")
-        file.write(f"\hline \n")
+        file.write(f"\\midrule \n")
         for i in range(len(print_names)):
             file.write(f"{print_names[i]} ".ljust(20))
             for j in range(len(metrics_std)):
@@ -111,10 +113,11 @@ def impact_pp_results():
             for j in range(len(metrics_super)):
                 file.write(f"& {data_super[j][i]:.1f}   ".ljust(15))
             file.write("\\\\ \n")
-        file.write(f"\hline \n")
+        file.write(f"\\bottomrule \n")
 
 
 
-KernelValidationRandom()
+# KernelValidationRandom()
+KernelValidationPP()
 
 
