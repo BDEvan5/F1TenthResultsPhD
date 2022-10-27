@@ -46,7 +46,7 @@ class AnalyseTestLapData:
             self.load_safety_data()
             self.calculate_lap_statistics()
 
-            # self.plot_velocity_heat_map()
+            self.plot_velocity_heat_map()
             # self.generate_safety_path()
 
         self.generate_summary_stats()
@@ -289,14 +289,16 @@ class AnalyseTestLapData:
         plt.gca().set_aspect('equal', adjustable='box')
 
 
-        txt = self.vehicle_name.split('_')[3]
-        if len(txt)==8: txt = "Online"
-        elif len(txt)==3: txt = "E2e"
-        elif len(txt)==2: txt = "PP"
+        # txt = self.vehicle_name.split('_')[3]
+        # if len(txt)==8: txt = "Online"
+        # elif len(txt)==3: txt = "E2e"
+        txt = self.vehicle_name.split("_")[2]
+        if len(txt)==5: txt = "SSS"
+        elif len(txt)==3: txt = "PP"
         plt.text(20, 50, txt, fontsize=25, ha='left', backgroundcolor='white', color="#1B4F72")
 
-        plt.xlim(0, 400)
-        plt.ylim(20, 520)
+        # plt.xlim(0, 400)
+        # plt.ylim(20, 520)
         
         plt.xticks([])
         plt.yticks([])
@@ -338,14 +340,14 @@ class AnalyseTestLapData:
         ax.spines['bottom'].set_visible(False)
         ax.spines['left'].set_visible(False)
 
-        txt = self.vehicle_name.split('_')[3]
-        if len(txt)==4: txt = "Online"
-        elif len(txt)==3: txt = "E2e"
-        elif len(txt)==2: txt = "PP"
-        plt.text(20, 50, txt, fontsize=25, ha='left', backgroundcolor='white', color="#1B4F72")
+        # txt = self.vehicle_name.split('_')[3]
+        # if len(txt)==4: txt = "Online"
+        # elif len(txt)==3: txt = "E2e"
+        # elif len(txt)==2: txt = "PP"
+        # plt.text(20, 50, txt, fontsize=25, ha='left', backgroundcolor='white', color="#1B4F72")
 
-        plt.xlim(0, 400)
-        plt.ylim(20, 520)
+        # plt.xlim(0, 400)
+        # plt.ylim(20, 520)
         # plt.xlim(700, 1100)
         # plt.ylim(60, 440)
         plt.tight_layout()
@@ -407,8 +409,8 @@ def explore_folder(path):
     for j, folder in enumerate(vehicle_folders):
         print(f"Vehicle folder being opened: {folder}")
         
-        if os.path.exists(folder + "TestingStatistics.txt"):
-            continue
+        # if os.path.exists(folder + "TestingStatistics.txt"):
+        #     continue
 
                     
 

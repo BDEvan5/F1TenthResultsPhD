@@ -48,6 +48,7 @@ class TestSimulation():
     def run_testing_evaluation(self):
         for run in self.run_data:
             print(run)
+            print("_________________________________________________________")
             print(run.run_name)
             print("_________________________________________________________")
             seed = run.random_seed + 10*run.n

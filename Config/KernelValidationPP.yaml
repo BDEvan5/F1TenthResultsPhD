@@ -2,7 +2,8 @@
 # Run with PP and rando
 
 planner: "PP"
-raceline: False
+raceline: True
+# raceline: False
 test_name: "KernelValidationPP"
 filter: False
 n_test_laps: 2
@@ -36,5 +37,8 @@ runs:
     test_mode: "Std"
   - speed_cap: 8
     test_mode: "Std"
+
+
+
 
 
