@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import tikzplotlib
 import csv
 import glob, os 
-from matplotlib.ticker import MultipleLocator
+from matplotlib.ticker import MultipleLocator, PercentFormatter
 
 from FoneTenth.Utils.utils import *
 
@@ -168,6 +168,71 @@ def plot_progress_steps_list(path_list):
 
 # Slow tests
 def slow_progress_training_comparision():
+    p = "Data/Vehicles/SlowTests/"
+
+    map_names = ["f1_esp", "f1_gbr", "f1_aut", "f1_mco"]
+    repeats = 5
+    moving_avg = 2
+    reward_list = ["Cth", "Progress", "Std"]
+    xs = np.arange(300)
+        
+    fig, axs = plt.subplots(2, 2, sharex=True, sharey=True, figsize=(7, 4))
+    axs = axs.reshape(-1)
+        
+    for ax, map_name in enumerate(map_names):
+    
+        step_list = [[] for _ in range(len(reward_list))]
+        progresses_list = [[] for _ in range(len(reward_list))]
+            
+        for i in range(repeats):
+            for j in range(len(reward_list)):
+                path = p + f"Slow_Std_Std_{reward_list[j]}_{map_name}_1_{i}/"
+                rewards, lengths, progresses, _ = load_csv_data(path)
+                
+                
+                steps = np.cumsum(lengths)/100
+                progresses = true_moving_average(progresses, moving_avg)*100
+                pr = np.interp(xs, steps, progresses)
+                if np.mean(pr) > 35:
+                    # print(np.mean(pr))
+                    step_list[j].append(steps)
+                    progresses_list[j].append(progresses)
+                else:
+                    print("Problem")
+                    print(progresses)
+                    print(path)
+
+
+        for j in [2, 1, 0]:
+            mins, maxes, means = convert_to_min_max_avg(step_list[j], progresses_list[j], xs)
+            axs[ax].plot(xs, means, '-', color=pp[j], linewidth=2, label=reward_list[j])
+            # for z in range(len(progresses_list[j])):
+                # if np.mean(progresses_list[j][z]) > 0.1:
+                # plt.plot(step_list[j][z], progresses_list[j][z], '-', color=pp[j], linewidth=1, alpha=0.4)
+                # plt.plot(step_list[j][z], progresses_list[j][z], '-', color=pp[j], linewidth=1)
+                
+            if np.mean(mins) > 0.1:
+                axs[ax].fill_between(xs, mins, maxes, color=pp[j], alpha=0.3)
+            
+            axs[ax].grid(True)
+            axs[ax].text(220, 10, map_name.split('_')[1].upper(),  fontsize=12)
+            # plt.show()
+            # axs[ax].get_yaxis().set_major_locator(MultipleLocator(10))
+
+    axs[2].set_xlabel("Training Steps (x100)")
+    axs[3].set_xlabel("Training Steps (x100)")
+    axs[0].set_ylabel("Avg. Progress %")
+    axs[2].set_ylabel("Avg. Progress %")
+    axs[0].legend(loc='center', ncol=3, bbox_to_anchor=(1.1, 1.1))
+    # plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.4), ncol=3)
+    # plt.tight_layout()
+
+    plt.savefig(p + f"slow_training_reward_all.pdf", bbox_inches='tight', pad_inches=0)
+    plt.savefig(p + f"slow_training_reward_all.svg", bbox_inches='tight', pad_inches=0)
+
+
+# Slow tests
+def slow_progress_training_comparision_old():
     p = "Data/Vehicles/SlowTests/"
 
     # map_name = "f1_esp"
