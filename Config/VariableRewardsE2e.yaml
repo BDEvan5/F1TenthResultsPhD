@@ -22,10 +22,14 @@ speed_cap: 8
 
 runs:
   - map_name: "f1_esp"
-    reward: "Progress"
-
+    reward: "Cth"
   - map_name: "f1_mco"
     reward: "Cth"
+
+  - map_name: "f1_esp"
+    reward: "Progress"
+  - map_name: "f1_mco"
+    reward: "Progress"
 
 
 

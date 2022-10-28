@@ -343,21 +343,24 @@ def compare_ep_vs_step_rewards():
 
 # Fast tests
 def fast_reward_comparision():
-    p = "Data/Vehicles/FastRewards2/"
-    # p = "Data/Vehicles/FastTests/"
+    p = "Data/Vehicles/FastRewardTests/"
 
     progress_steps = []
     progress_progresses = []
     cth_steps = []
     cth_progresses = []
 
-    set_n = 5
-    repeats = 3
+    set_n =1
+    repeats = 5
     speed = 5
+    
+    
 
     for i in range(repeats):
-        path_progress = p + f"Fast_Progress_f1_esp_{speed}_{set_n}_{i}/"
-        path_cth = p + f"Fast_Cth_f1_esp_{speed}_{set_n}_{i}/"
+        path_progress = p + f"Fast_Progress_f1_esp_{set_n}_{i}/"
+        path_cth = p + f"Fast_Cth_f1_esp_{set_n}_{i}/"
+        # path_progress = p + f"Fast_Progress_f1_esp_{speed}_{set_n}_{i}/"
+        # path_cth = p + f"Fast_Cth_f1_esp_{speed}_{set_n}_{i}/"
 
         rewards_progress, lengths_progress, progresses_progress, _ = load_csv_data(path_progress)
         rewards_cth, lengths_cth, progresses_cth, _ = load_csv_data(path_cth)
@@ -787,12 +790,12 @@ def link_ee_compare_training():
     print("--------------------------------")
 
 
-slow_progress_training_comparision()
+# slow_progress_training_comparision()
 # compare_ep_vs_step_rewards()
 
 # fast_progress_training_comparision_maxspeed()
 # fast_progress_training_ppps_maps()
-# fast_reward_comparision()
+fast_reward_comparision()
 # generate_racing_training_graphs()
 # fast_repeatability()
 
