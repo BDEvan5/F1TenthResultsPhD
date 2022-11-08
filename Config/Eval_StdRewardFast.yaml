@@ -1,0 +1,31 @@
+
+planner: "Agent"
+
+test_name: "Eval_StdRewardFast"
+racing_mode: "Fast"
+n_scans: 2
+train_mode: "Std"
+test_mode: "Std"
+
+n: 5
+set_n: 1
+
+random_seed: 10000
+
+n_train_steps: 100000
+# n_test_laps: 20
+n_test_laps: 50
+
+# speed_cap: 8
+speed_cap: 5
+
+runs:
+  - map_name: "f1_aut"
+    reward: "Std"
+
+
+
+
+
+
+

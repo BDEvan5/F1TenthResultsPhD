@@ -1,0 +1,37 @@
+
+planner: "Agent"
+
+test_name: "Online_MaxSpeedsFast" # name params
+set_n: 1
+n: 5
+
+train_mode: "Online"
+n_train_steps: 10000
+
+reward: "Velocity"
+
+n_test_laps: 20
+
+noise_std: 0
+
+racing_mode: "Fast"
+filter: False
+
+n_scans: 2
+random_seed: 10000
+
+map_name: "f1_esp"
+
+runs:
+
+  - speed_cap: 4
+    set_n: 4
+  - speed_cap: 5
+    set_n: 5
+  - speed_cap: 6
+    set_n: 6
+  - speed_cap: 7
+    set_n: 7
+  - speed_cap: 8
+    set_n: 8
+

@@ -1,0 +1,31 @@
+# test_name: "Benchmark" # the series of tests being run in thesis
+test_name: "Obs_pp" # the series of tests being run in thesis
+
+architecture: "PP"
+
+n: 1
+set_n: 1
+random_seed: 10000
+
+n_train_steps: 50000
+n_test_laps: 50
+
+racing: True
+# racing: False
+
+map_name: "columbia_small"
+# map_name: "f1_aut"
+
+runs:
+  - n_obstacles: 0
+  - n_obstacles: 1
+  - n_obstacles: 2
+  - n_obstacles: 3
+  - n_obstacles: 4
+  - n_obstacles: 5
+  - n_obstacles: 6
+  - n_obstacles: 7
+  - n_obstacles: 8
+
+
+

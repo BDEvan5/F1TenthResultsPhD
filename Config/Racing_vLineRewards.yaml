@@ -1,7 +1,7 @@
 
 planner: "Agent"
 
-test_name: "FastRewardTests"
+test_name: "Racing_vLineRewards"
 
 racing_mode: "Fast"
 n_scans: 2
@@ -20,16 +20,13 @@ n_test_laps: 50
 speed_cap: 8
 # speed_cap: 5
 
-runs:
-  - map_name: "f1_esp"
-    reward: "Cth"
-  - map_name: "f1_mco"
-    reward: "Cth"
+map_name: "f1_esp"
 
-  - map_name: "f1_esp"
-    reward: "Progress"
-  - map_name: "f1_mco"
-    reward: "Progress"
+runs:
+  - reward: "v1"
+  - reward: "v2"
+  - reward: "v3"
+  - reward: "PPPS"
 
 
 

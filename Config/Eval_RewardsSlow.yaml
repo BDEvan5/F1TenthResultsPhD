@@ -1,7 +1,7 @@
 
 planner: "Agent"
 
-test_name: "SlowTests"
+test_name: "Eval_RewardsSlow"
 
 racing_mode: "Slow"
 vehicle_speed: 2

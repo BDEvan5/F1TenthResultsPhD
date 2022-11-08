@@ -1,9 +1,7 @@
 
-# Run with PP and rando
-
 
 planner: "Rando"
-test_name: "KernelValidationRandom"
+test_name: "SSS_RandomValidation"
 filter: False
 n_test_laps: 50
 
@@ -32,6 +30,16 @@ runs:
     racing_mode: "Slow"
   - map_name: "f1_mco"
     racing_mode: "Slow"
+
+  - map_name: "f1_esp"
+    racing_mode: "Slow"
+    filter: True
+  - map_name: "f1_aut_wide"
+    racing_mode: "Slow"
+    filter: True
+  - map_name: "f1_mco"
+    racing_mode: "Slow"
+    filter: True
 
   - map_name: "f1_esp"
     racing_mode: "Fast"

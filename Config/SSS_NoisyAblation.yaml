@@ -5,7 +5,7 @@
 raceline: False
 planner: "Rando"
 
-test_name: "KernelAblation"
+test_name: "SSS_NoisyAblation"
 
 set_n: 2
 n: 1

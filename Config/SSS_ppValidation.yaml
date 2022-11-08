@@ -4,7 +4,7 @@
 planner: "PP"
 raceline: True
 # raceline: False
-test_name: "KernelValidationPP"
+test_name: "SSS_ppValidation"
 filter: False
 n_test_laps: 2
 

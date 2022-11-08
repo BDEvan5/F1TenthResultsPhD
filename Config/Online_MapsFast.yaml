@@ -1,0 +1,33 @@
+
+planner: "Agent"
+
+test_name: "Online_MapsFast" # name params
+set_n: 1
+n: 1
+
+# agent training parameters
+train_mode: "Online"
+n_train_steps: 10000
+
+
+reward: "Velocity"
+
+test_mode: "Std"
+n_test_laps: 20
+
+noise_std: 0
+speed_cap: 5
+vehicle_speed: 2
+
+# racing_mode: "Slow"
+racing_mode: "Fast"
+filter: False
+
+n_scans: 2
+random_seed: 10000
+
+runs:
+  - map_name: "f1_esp"
+  - map_name: "f1_aut"
+  - map_name: "f1_mco"
+  - map_name: "f1_gbr"

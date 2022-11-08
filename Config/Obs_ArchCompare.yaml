@@ -1,0 +1,22 @@
+test_name: "Obs_ArchCompare" # the series of tests being run in thesis
+
+n: 5
+set_n: 1
+random_seed: 1000
+
+n_train_steps: 50000
+n_test_laps: 100
+
+n_obstacles: 8
+racing: True
+# racing: False
+
+map_name: "columbia_small"
+
+runs:
+  - architecture: "E2e"
+  - architecture: "Serial"
+  - architecture: "Mod"
+
+
+

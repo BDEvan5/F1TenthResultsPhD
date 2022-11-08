@@ -1,7 +1,7 @@
 
 planner: "Agent"
 
-test_name: "FastMaxSpeed"
+test_name: "Eval_MaxSpeed"
 
 racing_mode: "Fast"
 n_scans: 2

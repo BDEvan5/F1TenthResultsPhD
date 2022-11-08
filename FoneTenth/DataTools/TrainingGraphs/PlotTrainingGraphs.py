@@ -352,15 +352,16 @@ def fast_reward_comparision():
 
     set_n =1
     repeats = 5
-    speed = 5
-    
-    
-
+    # speed = 5
+    speed = 8
+    # map_name = "f1_mco"
+    map_name = "f1_esp"
+# 
     for i in range(repeats):
-        path_progress = p + f"Fast_Progress_f1_esp_{set_n}_{i}/"
-        path_cth = p + f"Fast_Cth_f1_esp_{set_n}_{i}/"
-        # path_progress = p + f"Fast_Progress_f1_esp_{speed}_{set_n}_{i}/"
-        # path_cth = p + f"Fast_Cth_f1_esp_{speed}_{set_n}_{i}/"
+        # path_progress = p + f"Fast_Std_Std_Progress_{map_name}_{set_n}_{i}/"
+        # path_cth = p + f"Fast_Std_Std_Cth_{map_name}_{set_n}_{i}/"
+        path_progress = p + f"Fast_Std_Std_Progress_{map_name}_{speed}_{set_n}_{i}/"
+        path_cth = p + f"Fast_Std_Std_Cth_{map_name}_{speed}_{set_n}_{i}/"
 
         rewards_progress, lengths_progress, progresses_progress, _ = load_csv_data(path_progress)
         rewards_cth, lengths_cth, progresses_cth, _ = load_csv_data(path_cth)
@@ -376,17 +377,20 @@ def fast_reward_comparision():
         cth_progresses.append(avg_progress_cth)
 
 
-    plt.figure(1, figsize=(6, 2.5))
+    plt.figure(1, figsize=(3.5, 2.0))
+    # plt.figure(1, figsize=(6, 2.5))
     plt.clf()
 
     xs = np.linspace(0, 1000, 300)
-    min_progress, max_progress, mean_progress = convert_to_min_max_avg(progress_steps, progress_progresses, len(xs))
-    min_cth, max_cth, mean_cth = convert_to_min_max_avg(cth_steps, cth_progresses, len(xs))
+    min_progress, max_progress, mean_progress = convert_to_min_max_avg(progress_steps, progress_progresses, xs)
+    min_cth, max_cth, mean_cth = convert_to_min_max_avg(cth_steps, cth_progresses, xs)
 
-    plt.plot(xs, mean_progress, '-', color='red', linewidth=2, label='Progress')
+    plt.plot(xs, mean_progress, '-', color=pp[0], linewidth=2, label='Progress')
     plt.gca().fill_between(xs, min_progress, max_progress, color='red', alpha=0.2)
-    plt.plot(xs, mean_cth, '-', color='green', linewidth=2, label='Cth')
+    plt.plot(xs, mean_cth, '-', color=pp[2], linewidth=2, label='Cth')
     plt.gca().fill_between(xs, min_cth, max_cth, color='green', alpha=0.2)
+    
+    plt.gca().get_yaxis().set_major_locator(MultipleLocator(25))
 
     plt.xlabel("Training Steps (x100)")
     plt.ylabel("Track Progress %")
@@ -395,9 +399,69 @@ def fast_reward_comparision():
     plt.tight_layout()
     plt.grid()
 
-    # plt.savefig("Data/HighSpeedEval/" + "fast_reward_comparision.pdf", bbox_inches='tight', pad_inches=0)
+    plt.savefig(p + f"fast_rewards_{map_name}_{speed}.pdf", bbox_inches='tight', pad_inches=0)
+    plt.savefig(p + f"fast_rewards_{map_name}_{speed}.svg", bbox_inches='tight', pad_inches=0)
 
-    plt.show()
+    plt.show()# Fast tests
+    
+# def fast_reward_comparision():
+#     p = "Data/Vehicles/FastRewardTests/"
+
+#     progress_steps = []
+#     progress_progresses = []
+#     cth_steps = []
+#     cth_progresses = []
+
+#     set_n =1
+#     repeats = 5
+#     speed = 5
+#     # speed = 8
+#     map_name = "f1_mco"
+#     # map_name = "f1_esp"
+
+#     for i in range(repeats):
+#         path_progress = p + f"Fast_Std_Std_Progress_f1_esp_{speed}_{set_n}_{i}/"
+#         path_cth = p + f"Fast_Std_Std_Cth_f1_esp_{speed}_{set_n}_{i}/"
+
+#         rewards_progress, lengths_progress, progresses_progress, _ = load_csv_data(path_progress)
+#         rewards_cth, lengths_cth, progresses_cth, _ = load_csv_data(path_cth)
+
+#         steps_progress = np.cumsum(lengths_progress) / 100
+#         avg_progress_progress = true_moving_average(progresses_progress, 20)* 100
+#         steps_cth = np.cumsum(lengths_cth) / 100
+#         avg_progress_cth = true_moving_average(progresses_cth, 20) * 100
+
+#         progress_steps.append(steps_progress)
+#         progress_progresses.append(avg_progress_progress)
+#         cth_steps.append(steps_cth)
+#         cth_progresses.append(avg_progress_cth)
+
+
+#     plt.figure(1, figsize=(3.5, 2.0))
+#     # plt.figure(1, figsize=(6, 2.5))
+#     plt.clf()
+
+#     xs = np.linspace(0, 1000, 300)
+#     min_progress, max_progress, mean_progress = convert_to_min_max_avg(progress_steps, progress_progresses, xs)
+#     min_cth, max_cth, mean_cth = convert_to_min_max_avg(cth_steps, cth_progresses, xs)
+
+#     plt.plot(xs, mean_progress, '-', color=pp[0], linewidth=2, label='Progress')
+#     plt.gca().fill_between(xs, min_progress, max_progress, color='red', alpha=0.2)
+#     plt.plot(xs, mean_cth, '-', color=pp[2], linewidth=2, label='Cth')
+#     plt.gca().fill_between(xs, min_cth, max_cth, color='green', alpha=0.2)
+
+#     plt.gca().get_yaxis().set_major_locator(MultipleLocator(25))
+#     plt.xlabel("Training Steps (x100)")
+#     plt.ylabel("Track Progress %")
+#     plt.legend(loc='lower right', ncol=2)
+#     # plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.4), ncol=3)
+#     plt.tight_layout()
+#     plt.grid()
+
+#     plt.savefig(p + f"fast_rewards_{map_name}_{speed}.pdf", bbox_inches='tight', pad_inches=0)
+#     plt.savefig(p + f"fast_rewards_{map_name}_{speed}.svg", bbox_inches='tight', pad_inches=0)
+
+#     plt.show()
 
 def fast_progress_training_comparision_maxspeed():
     p = "Data/Vehicles/MaxV/"
