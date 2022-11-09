@@ -298,6 +298,8 @@ class PurePursuit:
         self.run = run
 
         self.raceline = run.raceline
+        self.speed_mode = run.pp_speed_mode
+        self.max_speed = run.max_speed
         self.trajectory = Trajectory(run.map_name, run.raceline)
         # self.trajectory.show_pts()
 
@@ -305,9 +307,7 @@ class PurePursuit:
         self.v_min_plan = conf.v_min_plan
         self.wheelbase =  conf.l_f + conf.l_r
         self.max_steer = conf.max_steer
-        # self.vehicle_speed = test_params.vehicle_speed
 
-        self.speed_cap = run.speed_cap
 
     def plan(self, obs):
         state = obs['state']
@@ -317,20 +317,23 @@ class PurePursuit:
         # lookahead = 1.2
         lookahead = 1 + 0.6* state[3] /  8
         lookahead_point = self.trajectory.get_current_waypoint(position, lookahead)
-        # plt.plot(lookahead_point[0], lookahead_point[1], 'ro')
-        # plt.pause(0.001)
 
         if state[3] < self.v_min_plan:
             return np.array([0.0, 4])
 
-        speed, steering_angle = get_actuation(theta, lookahead_point, position, self.lookahead, self.wheelbase)
+        speed_raceline, steering_angle = get_actuation(theta, lookahead_point, position, self.lookahead, self.wheelbase)
         steering_angle = np.clip(steering_angle, -self.max_steer, self.max_steer)
-        if not self.raceline:
+        if self.speed_mode == 'constant':
+            speed = 2
+        elif self.speed_mode == 'link':
             speed = calculate_speed(steering_angle, 0.8, 7)
-        speed = min(speed, self.speed_cap) # cap the speed
-        # speed *= 0.7
+        elif self.speed_mode == 'raceline':
+            speed = speed_raceline
+        else:
+            raise Exception(f"Invalid speed mode: {self.speed_mode}")
+            
+        speed = min(speed, self.max_speed) # cap the speed
 
-        # speed = 2
         action = np.array([steering_angle, speed])
 
         return action

@@ -24,7 +24,7 @@ filter: False
 
 n_scans: 1
 random_seed: 1000
-speed_cap: 2
+max_speed: 2
 
 # map_name: "f1_aut"
 # map_name: "f1_esp"

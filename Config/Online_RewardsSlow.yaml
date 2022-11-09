@@ -13,7 +13,7 @@ test_mode: "Std"
 n_test_laps: 20
 
 noise_std: 0
-speed_cap: 5
+max_speed: 5
 vehicle_speed: 2
 
 racing_mode: "Slow"

@@ -21,11 +21,11 @@ map_name: "f1_esp"
 reward: "Cth"
 
 runs:
-  - speed_cap: 4
-  - speed_cap: 5
-  - speed_cap: 6
-  - speed_cap: 7
-  - speed_cap: 8
+  - max_speed: 4
+  - max_speed: 5
+  - max_speed: 6
+  - max_speed: 7
+  - max_speed: 8
 
 
 

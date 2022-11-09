@@ -6,7 +6,7 @@ from numba import njit
 
 from FoneTenth.Utils.utils import init_file_struct, calculate_speed
 from FoneTenth.Planners.Architectures import *
-
+from FoneTenth.SelectionFunctions import *
 from matplotlib import pyplot as plt
 
 
@@ -25,9 +25,8 @@ class AgentTrainer:
         self.nn_act = None
         self.action = None
 
-        if run.racing_mode == "Slow": self.architecture = E2eSlowArch(run, conf)
-        elif run.racing_mode == "Fast": self.architecture = E2eRaceArch(run, conf)
-        else: raise Exception("Unknown architecture")
+        architecture_type = select_architecture(run.architecture)
+        self.architecture = architecture_type(run, conf)
 
         self.agent = TD3(self.architecture.state_space, self.architecture.action_space, 1, run.run_name)
         self.agent.create_agent(conf.h_size)

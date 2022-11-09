@@ -6,7 +6,7 @@ import torch
 
 import numpy as np
 import time
-from FoneTenth.Utils.StdRewards import *
+from FoneTenth.SelectionFunctions import *
 from FoneTenth.Utils.StdTrack import StdTrack
 
 from FoneTenth.Utils.HistoryStructs import VehicleStateHistory
@@ -35,25 +35,14 @@ class TrainSimulation(TestSimulation):
             torch.use_deterministic_algorithms(True)
             torch.manual_seed(seed)
 
-            assert run.planner == "Agent"
             self.env = F110Env(map=run.map_name)
             self.map_name = run.map_name
             self.n_train_steps = run.n_train_steps
 
             #train
             self.std_track = StdTrack(run.map_name)
-            if run.reward == "None":
-                self.reward = NoneReward()
-            elif run.reward == "Progress":
-                self.reward = DistanceReward(self.std_track)
-            elif run.reward == "Velocity":
-                self.reward = VelocityReward(self.conf, run)
-            elif run.reward == "Cth": 
-                self.reward = CrossTrackHeadReward(self.std_track, self.conf)
-            elif run.reward == "Ppps":
-                self.reward = PppsReward(self.conf, run)
-            elif run.reward == "Time":
-                self.reward = TimeReward(self.conf)
+            self.race_track = RacingTrack(run.map_name)
+            self.reward = select_reward_function(run, self.conf, self.std_track, self.race_track)
 
             if run.train_mode == "Std":
                 self.planner = AgentTrainer(run, self.conf)
@@ -141,15 +130,10 @@ class TrainSimulation(TestSimulation):
 
 
 def main():
-
-    # sim = TrainSimulation("")
-    # sim = TrainSimulation("")
-    # sim = TrainSimulation("")
-    # sim = TrainSimulation("")
-    # sim = TrainSimulation("")
-    # sim = TrainSimulation("ConstantE2e")
-    # sim = TrainSimulation("MaxSpeedE2e")
-    sim = TrainSimulation("VariableRewardsE2e")
+    run_file = "Eval_RewardsSlow"
+    
+    
+    sim = TrainSimulation(run_file)
     sim.run_training_evaluation()
 
 

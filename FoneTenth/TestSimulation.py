@@ -13,7 +13,6 @@ from FoneTenth.Planners.RandomPlanner import RandomPlanner
 import torch
 import numpy as np
 import time
-from FoneTenth.Utils.StdRewards import CrossTrackHeadReward
 
 # settings
 SHOW_TRAIN = False
@@ -223,11 +222,10 @@ class TestSimulation():
 
 
 def main():
-    # sim = TestSimulation("SuperRuns")
-    # sim = TestSimulation("OnlineRuns")
-    # sim = TestSimulation("KernelValidation")
-    # sim = TestSimulation("KernelValidationPP")
-    sim = TestSimulation("KernelAblation")
+    run_file = "Eval_RewardsSlow"
+    
+    
+    sim = TestSimulation(run_file)
     sim.run_testing_evaluation()
 
 

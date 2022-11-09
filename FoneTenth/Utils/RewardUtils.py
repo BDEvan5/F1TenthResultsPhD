@@ -94,3 +94,22 @@ def sub_angles_complex(a1, a2):
     return phase
     
 
+
+#TODO: njit these function
+def robust_angle_difference_degree(x, y):
+    """Returns the difference between two angles in DEGREES
+    r = x - y"""
+    x = np.deg2rad(x)
+    y = np.deg2rad(y)
+    r = np.arctan2(np.sin(x-y), np.cos(x-y))
+    return np.rad2deg(r)
+
+def robust_angle_difference_rad(x, y):
+    """Returns the difference between two angles in RADIANS
+    r = x - y"""
+    return np.arctan2(np.sin(x-y), np.cos(x-y))
+
+
+if __name__ == '__main__':
+    test_angle_diff()
+    pass

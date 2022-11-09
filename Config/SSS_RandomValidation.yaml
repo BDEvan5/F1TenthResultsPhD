@@ -21,7 +21,7 @@ test_mode: "Super"
 noise_std: 0
 n_scans: 1
 random_seed: 1000
-speed_cap: 8
+max_speed: 8
 
 runs:
   - map_name: "f1_esp"

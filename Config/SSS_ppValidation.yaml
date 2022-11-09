@@ -24,18 +24,18 @@ racing_mode: "Fast"
 
 
 runs:
-  - speed_cap: 4
+  - max_speed: 4
     test_mode: "Super"
-  - speed_cap: 6
+  - max_speed: 6
     test_mode: "Super"
-  - speed_cap: 8
+  - max_speed: 8
     test_mode: "Super"
 
-  - speed_cap: 4
+  - max_speed: 4
     test_mode: "Std"
-  - speed_cap: 6
+  - max_speed: 6
     test_mode: "Std"
-  - speed_cap: 8
+  - max_speed: 8
     test_mode: "Std"
 
 
