@@ -17,7 +17,7 @@ def select_architecture(architecture: str):
 
 def select_reward_function(run, conf, std_track, race_track):
     reward = run.reward
-    if reward == "None":
+    if reward == "Zero":
         reward_function = ZeroReward()
     elif reward == "Progress":
         reward_function = ProgressReward(std_track)

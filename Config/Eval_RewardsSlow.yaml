@@ -7,12 +7,12 @@ n_scans: 2
 train_mode: "Std"
 test_mode: "Std"
 
-n: 1
+n: 5
 set_n: 1
 
 random_seed: 10000
 
-n_train_steps: 10000
+n_train_steps: 30000
 n_test_laps: 20
 
 runs:
@@ -34,14 +34,14 @@ runs:
   - map_name: "f1_gbr"
     reward: "Cth"
 
-  # - map_name: "f1_aut"
-  #   reward: "Std"
-  # - map_name: "f1_mco"
-  #   reward: "Std"
-  # - map_name: "f1_esp"  
-  #   reward: "Std"
-  # - map_name: "f1_gbr"
-  #   reward: "Std"
+  - map_name: "f1_aut"
+    reward: "Zero"
+  - map_name: "f1_mco"
+    reward: "Zero"
+  - map_name: "f1_esp"  
+    reward: "Zero"
+  - map_name: "f1_gbr"
+    reward: "Zero"
 
 
 

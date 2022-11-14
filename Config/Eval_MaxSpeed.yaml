@@ -1,9 +1,8 @@
 
-planner: "Agent"
-
 test_name: "Eval_MaxSpeed"
 
-racing_mode: "Fast"
+architecture: "fast"
+
 n_scans: 2
 train_mode: "Std"
 test_mode: "Std"

@@ -1,9 +1,7 @@
 
-planner: "Agent"
-
 test_name: "Eval_RewardsFast"
 
-racing_mode: "Fast"
+architecture: "fast"
 n_scans: 2
 train_mode: "Std"
 test_mode: "Std"

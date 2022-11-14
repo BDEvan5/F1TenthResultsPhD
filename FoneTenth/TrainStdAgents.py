@@ -130,7 +130,8 @@ class TrainSimulation(TestSimulation):
 
 
 def main():
-    run_file = "Eval_RewardsSlow"
+    # run_file = "Eval_RewardsSlow"
+    run_file = "Eval_MaxSpeed"
     
     
     sim = TrainSimulation(run_file)

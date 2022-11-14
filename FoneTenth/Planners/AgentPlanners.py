@@ -125,9 +125,8 @@ class AgentTester:
 
         self.actor = torch.load(self.path + '/' + run.run_name + "_actor.pth")
 
-        if run.racing_mode == "Slow": self.architecture = E2eSlowArch(run, conf)
-        elif run.racing_mode == "Fast": self.architecture = E2eRaceArch(run, conf)
-        else: raise Exception("Unknown architecture")
+        architecture_type = select_architecture(run.architecture)
+        self.architecture = architecture_type(run, conf)
 
         print(f"Agent loaded: {run.run_name}")
 
