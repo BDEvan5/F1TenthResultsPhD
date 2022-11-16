@@ -1,6 +1,6 @@
 import csv 
 import numpy as np
-
+from matplotlib import pyplot as plt
 
 def load_csv_data(path):
     """loads data from a csv training file
@@ -57,6 +57,11 @@ def smooth_line(steps, progresses, length_xs=300):
     smooth_line = np.interp(xs, steps, progresses)
 
     return xs, smooth_line
+
+
+def std_img_saving(name):
+    plt.savefig(name + ".pdf", bbox_inches='tight', pad_inches=0)
+    plt.savefig(name + ".svg", bbox_inches='tight', pad_inches=0)
 
 ### ----
 
