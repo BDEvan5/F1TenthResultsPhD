@@ -25,7 +25,9 @@ class OnlineTrainer:
         self.t_his = agent.t_his
         self.path = agent.path
 
-        self.pp_planner = PurePursuit(agent.conf, agent.run, False, raceline=False)
+        agent.run.raceline = False
+        agent.run.pp_speed_mode = 'link'
+        self.pp_planner = PurePursuit(agent.conf, agent.run, False)
         if run.filter: self.kernel = KernelListFilter(conf, run)
         else: self.kernel = KernelList(conf, run)
 
