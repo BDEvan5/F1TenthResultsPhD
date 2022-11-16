@@ -20,7 +20,7 @@ max_speed: 8
 
 runs:
   - map_name: "f1_aut"
-    reward: "Std"
+    reward: "Zero"
 
 
 
