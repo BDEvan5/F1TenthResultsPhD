@@ -61,7 +61,7 @@ class OnlineTrainer:
 
         self.intervene = True
         action = self.pp_planner.plan(obs)
-        if self.run.racing_mode == "Slow": action[1] = self.run.vehicle_speed
+        if self.run.architecture == "slow": action[1] = self.run.max_speed
         else: action[1] *= 0.7 # if using PP, then slow down too
         
         self.safe_history.add_intervention(init_action, action)
