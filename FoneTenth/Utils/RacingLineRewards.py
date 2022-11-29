@@ -5,12 +5,13 @@ from FoneTenth.Utils.RacingTrack import RacingTrack
 
 class PppsReward:
     def __init__(self, conf, run):
-        # self.pp = PurePursuit(conf, run, False, False)
-        self.pp = PurePursuit(conf, run, False, True) #! fix the initialiser when I have considered the PP args. 
+        run.pp_speed_mode = "link"
+        run.raceline = False
+        self.pp = PurePursuit(conf, run, False) 
 
         self.beta_c = 0.4
         self.beta_steer_weight = 0.4
-        if run.racing_mode =="Fast":
+        if run.architecture =="fast":
             self.beta_velocity_weight = 0.4
         else:
             self.beta_velocity_weight = 0.0

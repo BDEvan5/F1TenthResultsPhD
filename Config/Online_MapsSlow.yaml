@@ -1,34 +1,28 @@
 
+test_name: "Online_RewardsSlow" # name params
+architecture: "slow"
 
-planner: "Agent"
-
-test_name: "Online_MapsSlow" # name params
 set_n: 1
-n: 5
+n: 1
 
 # agent training parameters
 train_mode: "Online"
-n_train_steps: 6000
-
-reward: "None"
-
 test_mode: "Std"
+
+n_train_steps: 6000
 n_test_laps: 20
 
 noise_std: 0
 max_speed: 2
-vehicle_speed: 2
 
-racing_mode: "Slow"
 filter: False
 
 n_scans: 2
 random_seed: 10000
+reward: "Velocity"
 
 runs:
   - map_name: "f1_esp"
   - map_name: "f1_aut"
   - map_name: "f1_mco"
   - map_name: "f1_gbr"
-
-

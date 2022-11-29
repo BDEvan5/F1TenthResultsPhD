@@ -27,12 +27,12 @@ class TrainSimulation(TestSimulation):
 
 
     def run_training_evaluation(self):
-        print(self.run_data)
+        # print(self.run_data)
         for run in self.run_data:
             print(run)
             seed = run.random_seed + 10*run.n
             np.random.seed(seed) # repetition seed
-            torch.set_det(True)
+            torch.set_deterministic(True)
             torch.manual_seed(seed)
 
             self.env = F110Env(map=run.map_name)
@@ -45,6 +45,7 @@ class TrainSimulation(TestSimulation):
             self.reward = select_reward_function(run, self.conf, self.std_track, self.race_track)
 
             if run.train_mode == "Std":
+                self.vehicle_state_history = None # don't record hsitory from previous test
                 self.planner = AgentTrainer(run, self.conf)
             elif run.train_mode == "Online": 
                 agent = AgentTrainer(run, self.conf)
@@ -135,7 +136,8 @@ def main():
     # run_file = "Eval_RewardsFast"
     # run_file = "Eval_StdRewardFast"
     
-    run_file = "Online_MaxSpeedsFast"
+    # run_file = "Online_MaxSpeedsFast"
+    run_file = "Online_RewardsFast"
     
     
     sim = TrainSimulation(run_file)
