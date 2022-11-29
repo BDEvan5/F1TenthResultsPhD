@@ -51,10 +51,6 @@ class AnalyseTestLapData:
         if not os.path.exists(self.path + "TestPaths/"): 
             os.mkdir(self.path + "TestPaths/")    
 
-        with open(self.path + "Statistics.txt", "w") as file:
-            file.write(f"Name: {self.path}\n")
-            file.write("Lap" + "Steering".rjust(16) + "Total Distance".rjust(16) + "Mean Curvature".rjust(16) + "Total Curvature".rjust(16) + "Mean Deviation".rjust(16) + "Total Deviation".rjust(16) + "Progress".rjust(16) + "Time".rjust(16) + "Avg Velocity".rjust(16) + "Mean R Deviation".rjust(16) + "Total R Deviation".rjust(16) + "\n")
-
         self.vehicle_name = self.path.split("/")[-2]
         self.map_name = self.vehicle_name.split("_")[4]
         if self.map_name == "f1":
