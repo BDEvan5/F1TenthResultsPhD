@@ -1,9 +1,9 @@
 
-test_name: "Online_RewardsFast" # name params
+test_name: "Online_MapsFast" # name params
 architecture: "fast"
 
 set_n: 1
-n: 1
+n: 5
 
 # agent training parameters
 train_mode: "Online"
@@ -22,7 +22,7 @@ random_seed: 10000
 reward: "Velocity"
 
 runs:
+  - map_name: "f1_gbr"
   - map_name: "f1_esp"
   - map_name: "f1_aut"
   - map_name: "f1_mco"
-  - map_name: "f1_gbr"

@@ -2,21 +2,14 @@
 
 test_name: "OnlineCompare" # name params
 set_n: 1
-n: 1
+n: 5
 
 # Testing params
 test_mode: "Std"
-# test_mode: "Super"
-# n_test_laps: 50
 n_test_laps: 20
-# n_test_laps: 2
 
 noise_std: 0
-max_speed: 5
-vehicle_speed: 2
 
-racing_mode: "Slow"
-# racing_mode: "Fast"
 filter: False
 
 n_scans: 2
@@ -25,44 +18,46 @@ random_seed: 10000
 map_name: "f1_esp"
 
 runs:
-  - planner: "Agent"
-    racing_mode: "Slow"
+  # - architecture: "PP"
+  #   pp_speed_mode: "constant"
+  #   raceline: True
+  #   n_train_steps: 0
+  #   max_speed: 2
+  #   reward: "Zero"
+  #   train_mode: "Online"
+
+  - architecture: "slow"
     train_mode: "Online"
     n_train_steps: 6000
-    reward: "None"
+    reward: "Zero"
     max_speed: 2
 
-  - planner: "Agent"
-    racing_mode: "Slow"
+  - architecture: "slow"
     train_mode: "Std"
-    n_train_steps: 6000
+    n_train_steps: 30000
     reward: "Cth"
     max_speed: 2
     
-  - planner: "PP"
-    racing_mode: "Slow"
-    raceline: True
-    max_speed: 2
 
 
-  - planner: "Agent"
-    racing_mode: "Fast"
+  - architecture: "fast"
     train_mode: "Online"
     n_train_steps: 10000
     reward: "Velocity"
-    max_speed: 8
+    max_speed: 5
 
-  - planner: "Agent"
-    racing_mode: "Fast"
+  - architecture: "fast"
     train_mode: "Std"
     n_train_steps: 100000
     reward: "Cth"
-    max_speed: 8
+    max_speed: 5
     
-  - planner: "PP"
-    racing_mode: "Fast"
-    raceline: True
-    max_speed: 8
+  # - architecture: "PP"
+  #   pp_speed_mode: "raceline"
+  #   raceline: True
+  #   n_train_steps: 0
+  #   max_speed: 5
+  #   reward: "Zero"
     
 
 

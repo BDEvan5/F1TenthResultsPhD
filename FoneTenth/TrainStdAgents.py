@@ -137,8 +137,12 @@ def main():
     # run_file = "Eval_StdRewardFast"
     
     # run_file = "Online_MaxSpeedsFast"
-    run_file = "Online_RewardsFast"
+    # run_file = "Online_RewardsFast"
+    # run_file = "Online_RewardsSlow"
+    # run_file = "Online_MapsFast"
+    # run_file = "Online_MapsSlow"
     
+    run_file = "Online_Compare"
     
     sim = TrainSimulation(run_file)
     sim.run_training_evaluation()

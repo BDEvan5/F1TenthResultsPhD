@@ -250,12 +250,13 @@ def generate_single_kernel():
     print("Generating single kernel for testing")
     print("--------------------------------------------------")
     
-    conf = load_conf("fast_kernel_config")
-    # conf = load_conf("slow_kernel_config")
+    # conf = load_conf("kernel_config_fast")
+    conf = load_conf("kernel_config_slow")
     
     build_dynamics_table(conf)
     
-    conf.map_name = "f1_esp"
+    # conf.map_name = "f1_esp"
+    conf.map_name = "f1_gbr"
     # conf.map_name = "f1_mco"
     # conf.map_name = "f1_aut"
     # conf.map_name = "f1_aut_wide"
@@ -267,8 +268,8 @@ def generate_single_kernel():
 
 if __name__ == "__main__":
 
-    # generate_single_kernel()
-    generate_fast_kernels()
+    generate_single_kernel()
+    # generate_fast_kernels()
     # generate_slow_kernels()
 
 
