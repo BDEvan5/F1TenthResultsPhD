@@ -30,7 +30,7 @@ class ProgressReward:
         # self.race_track.plot_vehicle(position, theta)
 
 
-        reward *= 10 # remove all reward
+        # reward *= 10 # remove all reward
         return reward 
 
 
