@@ -314,8 +314,8 @@ class PurePursuit:
         position = state[0:2]
         theta = state[2]
         # lookahead = 1.8
-        # lookahead = 1.2
-        lookahead = 1 + 0.6* state[3] /  8
+        lookahead = 1.2
+        # lookahead = 1 + 0.6* state[3] /  8
         lookahead_point = self.trajectory.get_current_waypoint(position, lookahead)
 
         if state[3] < self.v_min_plan:

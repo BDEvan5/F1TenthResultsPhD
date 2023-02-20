@@ -32,7 +32,8 @@ class TrainSimulation(TestSimulation):
             print(run)
             seed = run.random_seed + 10*run.n
             np.random.seed(seed) # repetition seed
-            torch.set_deterministic(True)
+            # torch.set_deterministic(True)
+            torch.use_deterministic_algorithms(True)
             torch.manual_seed(seed)
 
             self.env = F110Env(map=run.map_name)
@@ -142,7 +143,8 @@ def main():
     # run_file = "Online_MapsFast"
     # run_file = "Online_MapsSlow"
     
-    run_file = "Online_Compare"
+    # run_file = "Online_Compare"
+    run_file = "SlowOnlineVsBaseline"
     
     sim = TrainSimulation(run_file)
     sim.run_training_evaluation()
