@@ -18,7 +18,7 @@ max_speed: 2
 filter: False
 
 n_scans: 1
-random_seed: 10000
+random_seed: 1000
 # reward: "Zero"
 
 runs:
@@ -39,21 +39,21 @@ runs:
   #   n_train_steps: 6000
   #   reward: "Zero"
 
-  - map_name: "f1_gbr"
-    train_mode: "Std"
-    n_train_steps: 30000
-    reward: "Progress"
-  - map_name: "f1_esp"
-    train_mode: "Std"
-    n_train_steps: 30000
-    reward: "Progress"
-  - map_name: "f1_aut"
-    train_mode: "Std"
-    n_train_steps: 30000
-    reward: "Progress"
+  # - map_name: "f1_gbr"
+  #   train_mode: "Std"
+  #   n_train_steps: 40000
+  #   reward: "Progress"
+  # - map_name: "f1_esp"
+  #   train_mode: "Std"
+  #   n_train_steps: 40000
+  #   reward: "Progress"
+  # - map_name: "f1_aut"
+  #   train_mode: "Std"
+  #   n_train_steps: 40000
+  #   reward: "Progress"
   - map_name: "f1_mco"
     train_mode: "Std"
-    n_train_steps: 30000
+    n_train_steps: 40000
     reward: "Progress"
 
   # - map_name: "f1_gbr"

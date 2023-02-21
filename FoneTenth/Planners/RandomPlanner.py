@@ -11,9 +11,9 @@ class RandomPlanner:
         self.conf = conf
         self.run = run
 
-        if run.racing_mode == "Fast":
+        if run.racing_mode == "fast":
             self.max_speed = 8
-        elif run.racing_mode == "Slow":
+        elif run.racing_mode == "slow":
             self.max_speed = 2
         else:
             raise Exception("Unknown racing mode")

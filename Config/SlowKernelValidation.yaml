@@ -1,0 +1,31 @@
+
+
+architecture: "Rando"
+test_name: "SlowKernelValidation"
+filter: False
+n_test_laps: 20
+
+set_n: 1
+n: 1
+
+train_mode: "Std"
+test_mode: "Super"
+reward: "Std"
+pp_speed_mode: "constant"
+
+
+noise_std: 0
+n_scans: 1
+random_seed: 1000
+max_speed: 2
+racing_mode: "slow"
+
+runs:
+  - map_name: "f1_aut"
+  - map_name: "f1_mco"
+  - map_name: "f1_gbr"
+  - map_name: "f1_esp"
+
+
+
+

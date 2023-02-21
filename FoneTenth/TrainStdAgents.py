@@ -52,7 +52,8 @@ class TrainSimulation(TestSimulation):
                 agent = AgentTrainer(run, self.conf)
                 self.planner = OnlineTrainer(agent)
                 #! only activate vehicle history if training in online mode.
-                self.vehicle_state_history = VehicleStateHistory(run, "Training/")
+                self.vehicle_state_history = None
+                # self.vehicle_state_history = VehicleStateHistory(run, "Training/")
 
             self.completed_laps = 0
 
@@ -108,6 +109,7 @@ class TrainSimulation(TestSimulation):
                     self.completed_laps += 1
 
                 elif observation['colision_done'] or self.std_track.check_done(observation):
+                    print(f"BIG PROBLEM: KERNEL NOT WORKING!!!")
 
                     if VERBOSE: print(f"{i}::Crashed -> FinalR: {observation['reward']:.2f} -> LapTime {observation['current_laptime']:.2f} -> TotalReward: {self.planner.t_his.rewards[self.planner.t_his.ptr-1]:.2f} -> Progress: {observation['progress']:.2f}")
                     crash_counter += 1

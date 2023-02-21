@@ -62,12 +62,12 @@ class TestSimulation():
             self.env = F110Env(map=run.map_name)
             self.map_name = run.map_name
 
-            if run.planner == "PP": 
+            if run.architecture == "PP": 
                 planner = PurePursuit(self.conf, run)
-            elif run.planner == "FGM": planner = FollowTheGap(self.conf, run)
-            elif run.planner == "Rando": 
+            elif run.architecture == "FGM": planner = FollowTheGap(self.conf, run)
+            elif run.architecture == "Rando": 
                 planner = RandomPlanner(run, self.conf)
-            elif run.planner == "Agent": 
+            elif run.architecture == "Agent": 
                 planner = AgentTester(run, self.conf)
             else: raise AssertionError(f"Planner {run.planner} not found")
 
@@ -222,7 +222,8 @@ class TestSimulation():
 
 
 def main():
-    run_file = "Eval_RewardsSlow"
+    # run_file = "Eval_RewardsSlow"
+    run_file = "SlowKernelValidation"
     
     
     sim = TestSimulation(run_file)

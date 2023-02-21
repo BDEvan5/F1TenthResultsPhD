@@ -9,6 +9,7 @@ from FoneTenth.Utils.utils import *
 class KernelList:
     def __init__(self, conf, run):
         assert run.filter == False, "Incorrect filter mode in Kernel List"
+        run.architecture = "slow" #! this is temp for a test: remove asap
 
         if run.architecture == "fast":
             kernel_name = conf.kernel_path + f"Kernel_{run.architecture.lower()}_{conf.max_v}_{run.map_name}"

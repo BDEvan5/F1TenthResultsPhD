@@ -16,14 +16,14 @@ def SlowOnlineVsBaseline_TrainingGraphMaps():
     map_names = ["f1_esp", "f1_gbr", "f1_aut", "f1_mco"]
     print_names = ["ESP", "GBR", "AUT", "MCO"]
     repeats = 3
-    moving_avg = 6
+    moving_avg = 10
     # vehicle_names = ["Std"]
     vehicle_names = ["Std", "Online"]
     paths = ["slow_Std_Std_Progress", "slow_Online_Std_Zero"]
     
-    xs = np.arange(300)
+    xs = np.arange(400)
         
-    fig, axs = plt.subplots(1, 2, sharey=False, figsize=(5, 1.8))
+    fig, axs = plt.subplots(1, 2, sharey=False, figsize=(6, 1.4))
     axs = axs.reshape(-1)
         
     # for ax, vehicle_name in enumerate(vehicle_names):
@@ -45,7 +45,7 @@ def SlowOnlineVsBaseline_TrainingGraphMaps():
 
     for j in range(len(map_names)):
         mins, maxes, means = convert_to_min_max_avg(step_list[j], progresses_list[j], xs)
-        axs[0].plot(xs, means, '-', color=pp[j], linewidth=1.6, label=print_names[j])
+        axs[0].plot(xs/10, means, '-', color=pp[j], linewidth=1.6, label=print_names[j])
             
         # axs[ax].fill_between(xs, mins, maxes, color=pp[j], alpha=0.3)
         
@@ -69,28 +69,28 @@ def SlowOnlineVsBaseline_TrainingGraphMaps():
 
     for j in range(len(map_names)):
         mins, maxes, means = convert_to_min_max_avg(step_list[j], rewards_list[j], xs)
-        axs[1].plot(xs, means, '-', color=pp[j], linewidth=1.6)
+        axs[1].plot(xs/10, means, '-', color=pp[j], linewidth=1.6)
             
         # axs[1].fill_between(xs, mins, maxes, color=pp[j], alpha=0.3)
         
         axs[1].grid(True)
 
-    axs[0].set_xlabel("Training Steps (x100)")
-    axs[1].set_xlabel("Training Steps (x100)")
+    axs[0].set_xlabel("Training Steps (x1000)")
+    axs[1].set_xlabel("Training Steps (x1000)")
     # axs[0].set_title("Avg. Ep. Reward")
     axs[0].set_ylabel("Avg. Ep. Reward")
     axs[1].set_ylabel("Avg. Ep. Reward")
     axs[0].set_title("Conventional")
-    axs[1].set_title("Online")
+    axs[1].set_title("Supervisor")
     # axs[0].set_title("Avg. Progress %")
     # axs[1].set_title("Reward")
-    # axs[0].get_yaxis().set_major_locator(MultipleLocator(25))
-    axs[0].get_xaxis().set_major_locator(MultipleLocator(75))
+    axs[0].get_yaxis().set_major_locator(MultipleLocator(1))
+    axs[0].get_xaxis().set_major_locator(MultipleLocator(10))
     axs[1].get_yaxis().set_major_locator(MultipleLocator(50))
-    axs[1].get_xaxis().set_major_locator(MultipleLocator(15))
+    axs[1].get_xaxis().set_major_locator(MultipleLocator(2))
     fig.subplots_adjust(wspace=.45)
     # axs[1].set_ylabel("Avg. Progress %")
-    fig.legend(loc='center', ncol=4, bbox_to_anchor=(0.5, -0.2))
+    fig.legend(loc='center', ncol=4, bbox_to_anchor=(0.5, -0.3))
     # axs[0].legend(loc='center', ncol=4, bbox_to_anchor=(1.1, 1.1))
 
     name = p + f"SlowOnlineVsBaseline_TrainingGraphMaps"
