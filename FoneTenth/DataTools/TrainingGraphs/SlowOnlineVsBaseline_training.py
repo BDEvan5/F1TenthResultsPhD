@@ -1,8 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import tikzplotlib
-import csv
-import glob, os 
+plt.rcParams['pdf.use14corefonts'] = True
+
 from matplotlib.ticker import MultipleLocator, PercentFormatter
 
 from FoneTenth.Utils.utils import *

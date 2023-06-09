@@ -3,6 +3,7 @@ from TrajectoryAidedLearning.DataTools.plotting_utils import *
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
+plt.rcParams['pdf.use14corefonts'] = True
 
 
 
@@ -11,7 +12,7 @@ def SlowOnlineVsBaseline_maps_Barplot():
     p = "Data/Vehicles/SlowOnlineVsBaseline/"
     
     # fig, axs = plt.subplots(1, 2, figsize=(7, 1.8))
-    fig, axs = plt.subplots(1, 2, figsize=(6.5, 1.5))
+    fig, axs = plt.subplots(1, 2, figsize=(6, 1.4))
     xs = np.arange(4)
     
     barWidth = 0.32
@@ -40,7 +41,7 @@ def SlowOnlineVsBaseline_maps_Barplot():
         
     plt.gca().get_xaxis().set_major_locator(MultipleLocator(1))
     plt.xticks([0, 1, 2, 3], ["AUT", "ESP", "GBR", "MCO"])
-    plt.title(ylabel)
+    plt.ylabel(ylabel)
     plt.grid(True)
     plt.ylim(0.95, 1.05, 100)
     
@@ -62,9 +63,10 @@ def SlowOnlineVsBaseline_maps_Barplot():
         
     plt.gca().get_xaxis().set_major_locator(MultipleLocator(1))
     plt.xticks([0, 1, 2, 3], ["AUT", "ESP", "GBR", "MCO"])
-    plt.title(ylabel)
+    plt.ylabel(ylabel)
     plt.grid(True)
     
+    fig.subplots_adjust(wspace=.38)
     
     axs[0].yaxis.set_major_locator(MultipleLocator(0.04))
     axs[1].yaxis.set_major_locator(MultipleLocator(25))
